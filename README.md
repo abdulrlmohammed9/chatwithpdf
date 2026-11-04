@@ -6,7 +6,7 @@ A Python/Gradio application that answers natural-language questions about upload
 
 `PDF upload → PyPDF2 text extraction → overlapping chunks → OpenAI embeddings → per-session in-memory cosine similarity retrieval (top 3) → OpenAI chat model → answer`
 
-**Technologies:** Python, Gradio, PyPDF2, OpenAI API, NumPy. The legacy implementation used LangChain and FAISS; the updated implementation uses in-memory NumPy retrieval to reduce dependencies. Do not describe the updated app as using FAISS or LangChain.
+**Technologies:** Python, Gradio, PyPDF2, OpenAI API, NumPy. The original prototype used LangChain and FAISS. The current app uses NumPy for in-memory retrieval.
 
 ## Setup
 
@@ -45,7 +45,11 @@ API usage may incur charges. Use non-sensitive documents that you are permitted 
 
 ## Provenance
 
-The original uploaded `chatwithpdf.py` used Gradio, PyPDF2, LangChain, FAISS, and OpenAI for PDF Q&A. This repository provides a streamlined variant for easier publication. Test on your own permitted PDF before describing it as working end-to-end.
+The original ChatWithPDF prototype was developed in JetBrains PyCharm using Gradio, PyPDF2, LangChain, FAISS, and OpenAI. The `original/` directory preserves the prototype and a snapshot of its PyCharm environment. The current version runs from `app.py` in a standard Python virtual environment.
+
+## Local validation
+
+The current version was tested manually on Windows. The app was launched from PowerShell, then used in a browser to process a Data Analyst Interview Questions and Answers PDF and answer a question about its contents.
 
 ## Portfolio description
 
