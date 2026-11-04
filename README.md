@@ -4,11 +4,13 @@ A Python/Gradio application that answers natural-language questions about upload
 
 ## Architecture
 
-`PDF upload → PyPDF2 text extraction → overlapping chunks → OpenAI embeddings → per-session in-memory cosine similarity retrieval (top 3) → OpenAI chat model → answer`
+`PDF upload → PyPDF2 text extraction → overlapping chunks → embeddings → per-session in-memory cosine similarity retrieval (top 3) → chat model → answer`
 
 **Technologies:** Python, Gradio, PyPDF2, OpenAI API, NumPy. The original prototype used LangChain and FAISS. The current app uses NumPy for in-memory retrieval.
 
 ## Setup
+
+The default setup uses OpenAI. For local models without API credits, follow the [Ollama setup guide](docs/ollama.md).
 
 1. Install Python 3.10+ and create a virtual environment.
 2. Install dependencies:
