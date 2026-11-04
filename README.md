@@ -28,7 +28,8 @@ API usage may incur charges. Use non-sensitive documents that you are permitted 
 
 - `app.py` — simplified, independently runnable Gradio application
 - `original/chatwithpdf_legacy.py` — original uploaded LangChain/FAISS prototype, preserved for provenance; it may need older compatible dependencies and is not the default entry point
-- `requirements.txt` — dependencies for `app.py`
+- `requirements.txt` — install these dependencies to run `app.py`
+- [`original/requirements-original-pycharm.txt`](original/requirements-original-pycharm.txt) — reference snapshot of the original PyCharm environment. It includes Streamlit for the separate Lecture Processing Assistant and omits Gradio.
 - `.env.example` — API key template, not a real key
 - `.gitignore` — excludes secrets, local development files, PDFs and generated indexes
 
