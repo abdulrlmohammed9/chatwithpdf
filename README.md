@@ -53,6 +53,14 @@ The original ChatWithPDF prototype was developed in JetBrains PyCharm using Grad
 
 The current version was tested manually on Windows. The app was launched from PowerShell, then used in a browser to process a Data Analyst Interview Questions and Answers PDF and answer a question about its contents.
 
+**ChatWithPDF demo**
+
+![ChatWithPDF answering a question about the uploaded interview guide](docs/ChatwithPDF.png)
+
+**PowerShell startup**
+
+![PowerShell showing ChatWithPDF running locally](docs/Powershell.png)
+
 ## Portfolio description
 
 **ChatWithPDF — Retrieval-Augmented PDF Question Answering**: Developed a Python Gradio application for document-grounded question answering, including PDF text extraction, chunking, OpenAI embeddings, similarity-based retrieval, and LLM answer generation.
