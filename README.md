@@ -4,7 +4,29 @@ A Python/Gradio application that answers natural-language questions about upload
 
 ## Architecture
 
-`PDF upload → PyPDF2 text extraction → overlapping chunks → embeddings → per-session in-memory cosine similarity retrieval (top 3) → chat model → answer`
+```mermaid
+flowchart TD
+    subgraph Index["1. Index the PDF"]
+        A["Upload PDF in Gradio"] --> B["Extract text with PyPDF2"]
+        B --> C["Split text into overlapping chunks"]
+        C --> D["Embed document chunks"]
+        D --> E["Store chunks and vectors in session memory"]
+    end
+    subgraph Ask["2. Answer a question"]
+        F["Ask a question in Gradio"] --> G["Embed the question"]
+        G --> H["Retrieve top 3 chunks by cosine similarity"]
+        H --> I["Send question and retrieved context to chat model"]
+        I --> J["Show answer with chunk references"]
+    end
+    E --> H
+```
+
+The selected backend handles document embeddings, question embeddings, and answer generation.
+
+| Backend | Embeddings | Answer generation |
+| --- | --- | --- |
+| OpenAI (default) | `text-embedding-3-small` | `gpt-4o-mini` |
+| Ollama (local) | `nomic-embed-text` | `qwen2.5:3b` |
 
 **Technologies:** Python, Gradio, PyPDF2, OpenAI API, NumPy. The original prototype used LangChain and FAISS. The current app uses NumPy for in-memory retrieval.
 
